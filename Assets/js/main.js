@@ -28,7 +28,7 @@ function setUp(){
   $('body').addClass('stop-scrolling');
 
   blink = anime({
-    targets: 'h1',
+    targets: '#logo',
     easing: 'linear',
     direction: 'alternate',
     opacity: 0,
@@ -38,14 +38,15 @@ function setUp(){
 }
 
 function enter(){
-  document.getElementsByTagName('h1')[0].style.opacity = 1;
+  // document.getElementsByTagName('h1')[0].style.opacity = 1;
+  document.getElementById('logo').style.opacity = 1;
       blink.pause();
 
   var repositionLogo = anime({
-    targets: 'h1',
+    targets: '#logo',
     easing: 'easeOutExpo',
     left: ['45%', '3%'],
-    bottom: 0,
+    bottom: '30px',
     duration: 2500
   });
 

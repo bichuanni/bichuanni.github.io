@@ -27,7 +27,7 @@
     transform: rotate(270.0deg);
 }
 
-.highlight-box {left: -100px; width: 107px;}
+.highlight-box {left: -100px; width: 120px;}
 
 .box {
     padding-left: 5px;
@@ -44,7 +44,7 @@
 
 .name {
     position: fixed;
-    color: gray;
+    color: lightgray;
     right: 0;
     top: 80px;
     font-size: 16px;
@@ -152,9 +152,8 @@ h2 {
     padding: 0;
 }
 
-h3 {
+p {
     color: white;
-
     font-size: 17px;
     font-weight: 400;
     margin: 0;
@@ -185,17 +184,34 @@ h3 {
     grid-gap: 10%;
 }
 
+/* Grow */
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.2s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
 #artist {
-    margin-top: 70px;
-    margin-left: 40%;
-    width: 50%;
+    margin-top: 60px;
+    /*margin-left: 40%;*/
+    margin-left: 30%;
+    width: 60%;
     display: none;
     /*display: inline-block;*/
 }
 
-#profile img{
-    width: 50%;
-}
+
 /*https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily*/
 .stop-scrolling {
   height: 100%;
@@ -278,8 +294,12 @@ h3 {
 
     .swatches {
         /*display: grid;*/
-        grid-template-columns: 22% 22% 22% 22%;
-        grid-gap: 4%;
+        grid-template-columns: 40% 40% ;
+        grid-gap: 7% 20%;
+    }
+
+    .small {
+        display: none;
     }
 
 }

@@ -78,6 +78,7 @@ function defineAnime(){
   darkenBackground = anime({
     targets: 'body',
     backgroundColor: '#1E2531',
+    easing: 'easeInOutSine',
     direction: 'reverse',
     duration: 1000,
     autoplay: false
@@ -135,18 +136,18 @@ function defineAnime(){
     targets: '#collection',
     direction: 'reverse',
     opacity: [1, 0],
-    easing: 'linear',
-    duration: 500,
+    easing: 'easeInOutSine',
+    duration: 1200,
     autoplay: false
   });
 
   linkExit = anime({
     targets: '#nav3',
-    translateY: -50,
+    translateY: [0, -50],
     opacity: 0,
     direction: 'reverse',
-    delay: 500,
-    duration: 1500,
+    // delay: 500,
+    duration: 1000,
     autoplay: false
   });
 
@@ -154,7 +155,7 @@ function defineAnime(){
     targets: '#highlight',
     opacity: [0, 1],
     direction: 'reverse',
-    duration: 1000,
+    duration: 1200,
     autoplay: false
   });
 
@@ -183,6 +184,8 @@ function changeVlidator (newState){
     }
     if (newState == "artist"){
       document.getElementById('artist').style.display = 'inline-block';
+      linkExit.reverse();
+      linkExit.play();
       proflieEnter.play();
       proflieEnter.reverse();
     }
@@ -214,6 +217,8 @@ function changeVlidator (newState){
       runwayExit("show");
       playRunwayAnime();
       runwayFade.reverse();
+      linkExit.reverse();
+      linkExit.play();
       $('body').addClass('stop-scrolling');
     }
     if (newState == "detail"){
@@ -221,11 +226,11 @@ function changeVlidator (newState){
       playDetailAnime("show");
       detailReverse();
     }
-    if (newState == "highlight"){
-      document.getElementById('highlight').style.display = 'initial';
-      highlightFadeIn.play();
-      highlightFadeIn.reverse();
-    }
+    // if (newState == "highlight"){
+    //   document.getElementById('highlight').style.display = 'initial';
+    //   highlightFadeIn.play();
+    //   highlightFadeIn.reverse();
+    // }
     proflieEnter.play();
     proflieEnter.reverse();
   }
@@ -372,15 +377,15 @@ function defineZoom(id, i){
   var big = anime({
       targets: target,
       translateX: 200*dir,
-      scale: 1.5,
-      easing: 'easeInOutExpo',
-      duration: 1000
+      scale: [1.1, 1.5],
+      easing: 'easeOutSine',
+      duration: 300
     });
 
   var darken = anime({
       targets: "#overlay",
       opacity: 0.8,
-      easing: 'easeInOutExpo',
+      easing: 'easeInOutSine',
       duration: 500
     });
 }
@@ -393,8 +398,8 @@ function defineShrink(id){
       translateX: 0,
       zIndex: 0,
       scale: 1,
-      easing: 'easeInOutExpo',
-      duration: 1000
+      easing: 'easeOutSine',
+      duration: 300
     });
 
   var lighten = anime({

@@ -68,7 +68,7 @@ h1 {
   font-style: italic;
   font-weight: 900;
   font-size: 3em;
-  /*left: 45%;*/
+  left: 50%;
   bottom: 40%;
   z-index: 5;
   display: inline-block;
@@ -89,7 +89,7 @@ h1 {
     /*align-content: center;*/
     /*align-items: center;*/
     display: inline-block;
-    margin-left: 48%;
+    margin-left: -3%;
     margin-top: 58%;
     bottom: 10px;
     z-index: 5;

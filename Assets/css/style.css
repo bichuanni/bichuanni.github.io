@@ -1,0 +1,291 @@
+/*--------------------------------------------------------------*/
+/************************fixed components***********************/
+/*--------------------------------------------------------------*/
+.container {margin: 3% 3% 3% 3%; height: 100%}
+
+.header {
+  position: fixed;
+  top: 0;
+  margin: 3% 1% 3% 2%;
+  z-index: 3;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collection-box { width: 72px;}
+
+.detail-box {width: 45px;}
+
+.artists-box {width: 49px;}
+
+.highlight-link {
+    position: fixed;
+    left: -1%;
+    top: 50%;
+    font-size: 16px;
+    z-index: 3;
+    transform: rotate(270.0deg);
+}
+
+.highlight-box {left: -100px; width: 107px;}
+
+.box {
+    padding-left: 5px;
+    padding-top: 1px;
+    height: 23px;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, rgb(30, 37, 49) 50%);
+    transition: background-position 1s;
+}
+
+.box:hover {
+    background-position: -100% 0;
+}
+
+.name {
+    position: fixed;
+    right: 0;
+    top: 80px;
+    font-size: 16px;
+    z-index: 3;
+    transform: rotate(270.0deg);
+}
+
+/*h1 {
+  position: fixed;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 900;
+  font-size: 3em;
+  left: 3%;
+  bottom: 0;
+  z-index: 1;
+}*/
+
+h1 {
+  position: fixed;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 900;
+  font-size: 3em;
+  /*left: 45%;*/
+  bottom: 40%;
+  z-index: 5;
+  display: inline-block;
+}
+
+#intro {
+    margin-right: 10%;
+    padding-right: 20%;
+    text-align:center;
+    width: 100%;
+    height: 100%;
+    /*align-content: center;*/
+}
+
+#arrow {
+    position: absolute;
+    width: 5%;
+    /*align-content: center;*/
+    /*align-items: center;*/
+    display: inline-block;
+    margin-left: 48%;
+    margin-top: 58%;
+    bottom: 10px;
+    z-index: 5;
+}
+
+/*html, body {height: 100%; width: 100%;}*/
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+html {height:100%;}
+
+body {
+    /*height: 100%;*/
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    margin: 0;
+    background-color: rgb(170, 170, 170);;
+    color: white;
+}
+
+img {
+    width: 100%;
+}
+
+.col-1 {position: absolute; left: 3%; width: 8%;}
+.col-2 {position: absolute; left: 14%; width: 8%;}
+.col-3 {position: absolute; left: 22%; width: 8%;}
+.col-4 {position: absolute; left: 30%; width: 27%;}
+.col-5 {position: absolute; left: 55%; width: 33%;}
+
+.runway img{padding: 15% 0% 15% 0%;}
+/*--------------------------------------------------------------*/
+/***************************detail section***********************/
+/*--------------------------------------------------------------*/
+.detail-content {padding-left: 30%; padding-top: 10%}
+
+#detail {
+    margin-left: 23px;
+    margin-right: 70px;
+    /*padding-right: 10%;*/
+    position: absolute;
+    /*padding: 5%;*/
+    display: none;
+}
+
+#detailmain {
+    margin-top: 20px;
+    /*padding: 20px 5%;*/
+    /*width: 90%;*/
+}
+
+.subTitle {
+    margin-top: 100px;
+}
+
+h2 {
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+    margin: 0;
+    margin-left: 1%;
+    padding: 0;
+}
+
+h3 {
+    color: white;
+
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.swatches {
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19%;
+    grid-gap: 8%;
+}
+
+/*--------------------------------------------------------------*/
+/*************************highlight section**********************/
+/*--------------------------------------------------------------*/
+#highlight {
+    position: absolute;
+    top: 13%;
+    left: 13%;
+    width: 79%;
+    display: none;
+}
+
+.look-detail {
+    padding: 20px 0 20px 0;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 10%;
+}
+
+#artist {
+    margin-top: 70px;
+    margin-left: 40%;
+    width: 50%;
+    display: none;
+    /*display: inline-block;*/
+}
+
+#profile img{
+    width: 50%;
+}
+/*https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily*/
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+  /*overflow: visible;*/
+}
+
+/*body, html {
+  overflow: visible !important;
+}*/
+
+#overlay {
+    /*padding-left: 5px;*/
+    /*padding-top: 1px;*/
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 0;
+    width: 100%;
+    height: 290%;
+    /*background-size: 400% 400%;*/
+    background-color: rgb(30, 37, 49);
+    /*background-image: linear-gradient(to right, transparent 50%, rgb(30, 37, 49) 50%);*/
+    /*transition: background-position 1s;*/
+}
+
+#backdrop {
+    position: absolute;
+    /*display: none;*/
+    top: 0;
+    left: 0;
+    /*opacity: 0;*/
+    z-index: 4;
+    width: 100%;
+    height: 290%;
+    background-color: rgb(30, 37, 49);
+}
+/*
+#intro {
+    height:100%;
+}*/
+
+/*---------------------------------------------------------------*/
+/************************home page specific***********************/
+/*---------------------------------------------------------------*/
+
+/* Medium devices and smaller (landscape tablets/phone, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .name {display: none}
+
+    .col-2 {left: 3%;}
+    .col-3 {left: 3%;}
+    .col-4 {width: 60%;}
+    .col-5 {display: none}
+
+    #nav0 {top: 2%;}
+    #nav1 {top: 6%;}
+    #nav2 {top: 10%;}
+
+    #highlight {
+        top: 3%;
+        left: 30%;
+        width: 60%;
+    }
+
+    .look-detail {
+        display: initial;
+    }
+
+    #detail {
+        margin-left: 22%;
+        margin-right: 50px;
+    }
+
+
+    .subTitle {margin-top: 130px;}
+    .detail-content {padding-left: 0}
+
+    .swatches {
+        /*display: grid;*/
+        grid-template-columns: 22% 22% 22% 22%;
+        grid-gap: 4%;
+    }
+
+}
+

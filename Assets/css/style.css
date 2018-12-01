@@ -1,40 +1,46 @@
 /*--------------------------------------------------------------*/
 /************************fixed components***********************/
 /*--------------------------------------------------------------*/
-.container {margin: 3% 3% 3% 3%; height: 100%}
-
-.header {
-  position: fixed;
-  top: 0;
-  margin: 3% 1% 3% 2%;
-  z-index: 3;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    height: 100%;
+    margin: 3% 3% 3% 3%;
 }
 
-.collection-box { width: 72px;}
+.header {
+    margin: 3% 1% 3% 2%;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+}
+
+.collection-box {width: 72px;}
 
 .detail-box {width: 45px;}
 
 .artists-box {width: 49px;}
 
 .highlight-link {
-    position: fixed;
-    left: -1%;
-    top: 50%;
     font-size: 16px;
-    z-index: 3;
+    left: -1%;
+    position: fixed;
     transform: rotate(270.0deg);
+    top: 50%;
+    z-index: 3;
 }
 
-.highlight-box {left: -100px; width: 120px;}
+.highlight-box {
+    left: -100px;
+    width: 120px;
+}
 
 .box {
-    padding-left: 5px;
-    padding-top: 1px;
-    height: 23px;
     background-size: 200% 100%;
     background-image: linear-gradient(to right, transparent 50%, rgb(30, 37, 49) 50%);
+    height: 23px;
+    padding-left: 5px;
+    padding-top: 1px;
     transition: background-position 1s;
 }
 
@@ -43,54 +49,25 @@
 }
 
 .name {
-    position: fixed;
     color: lightgray;
+    font-size: 16px;
+    position: fixed;
     right: 0;
     top: 80px;
-    font-size: 16px;
-    z-index: 3;
     transform: rotate(270.0deg);
+    z-index: 3;
 }
 
 #logo {
-  /*position: absolute;*/
-  position: fixed;
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 900;
-  font-size: 3em;
-  /*left: 50%;*/
-  margin-right: 60px;
-  bottom: 40%;
-  z-index: 5;
-  /*display: inline-block;*/
-}
-
-#intro {
-    margin-right: 10%;
-    padding-right: 20%;
-    text-align:center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*align-content: center;*/
-}
-
-#arrow {
-    position: absolute;
-    width: 5%;
-    /*align-content: center;*/
-    /*align-items: center;*/
-    display: inline-block;
-    margin-left: -3%;
-    margin-top: 58%;
-    bottom: 10px;
+    bottom: 40%;
+    font-family: 'Rubik';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 3em;
+    margin-right: 60px;
+    position: fixed;
     z-index: 5;
 }
-
-/*html, body {height: 100%; width: 100%;}*/
 
 a {
     color: white;
@@ -100,42 +77,66 @@ a {
 html {height:100%;}
 
 body {
-    /*height: 100%;*/
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-    margin: 0;
     background-color: rgb(170, 170, 170);;
     color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    margin: 0;
 }
 
 img {
     width: 100%;
 }
 
-.col-1 {position: absolute; left: 3%; width: 8%;}
-.col-2 {position: absolute; left: 14%; width: 8%;}
-.col-3 {position: absolute; left: 22%; width: 8%;}
-.col-4 {position: absolute; left: 30%; width: 27%;}
-.col-5 {position: absolute; left: 55%; width: 33%;}
+.col-1 {left: 3%; position: absolute; width: 8%;}
+.col-2 {left: 14%; position: absolute; width: 8%;}
+.col-3 {left: 22%; position: absolute; width: 8%;}
+.col-4 {left: 30%; position: absolute; width: 27%;}
+.col-5 {left: 55%; position: absolute; width: 33%;}
+
+/*https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily*/
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
 
 .runway img{padding: 15% 0% 15% 0%;}
+/*--------------------------------------------------------------*/
+/*********************Welcome page components********************/
+/*--------------------------------------------------------------*/
+#intro {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin-right: 10%;
+    padding-right: 20%;
+    text-align:center;
+    width: 100%;
+}
+
+#arrow {
+    bottom: 10px;
+    display: inline-block;
+    margin-left: -3%;
+    margin-top: 58%;
+    position: absolute;
+    width: 5%;
+    z-index: 5;
+}
 /*--------------------------------------------------------------*/
 /***************************detail section***********************/
 /*--------------------------------------------------------------*/
 .detail-content {padding-left: 30%; padding-top: 10%}
 
 #detail {
+    display: none;
     margin-left: 23px;
     margin-right: 70px;
-    /*padding-right: 10%;*/
     position: absolute;
-    /*padding: 5%;*/
-    display: none;
 }
 
 #detailmain {
     margin-top: 20px;
-    /*padding: 20px 5%;*/
-    /*width: 90%;*/
 }
 
 .subTitle {
@@ -170,71 +171,51 @@ p {
 /*************************highlight section**********************/
 /*--------------------------------------------------------------*/
 #highlight {
+    display: none;
+    left: 13%;
     position: absolute;
     top: 13%;
-    left: 13%;
     width: 79%;
-    display: none;
 }
 
 .look-detail {
-    padding: 20px 0 20px 0;
     display: grid;
     grid-template-columns: 45% 45%;
     grid-gap: 10%;
+    padding: 20px 0 20px 0;
 }
-
-#artist {
-    margin-top: 60px;
-    margin-left: 30%;
-    width: 60%;
-    display: none;
-}
-
-
-/*https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily*/
-.stop-scrolling {
-  height: 100%;
-  overflow: hidden;
-  /*overflow: visible;*/
-}
-
-/*body, html {
-  overflow: visible !important;
-}*/
 
 #overlay {
-    /*padding-left: 5px;*/
-    /*padding-top: 1px;*/
-    position: absolute;
-    display: none;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: 0;
-    width: 100%;
-    height: 290%;
-    /*background-size: 400% 400%;*/
     background-color: rgb(30, 37, 49);
-    /*background-image: linear-gradient(to right, transparent 50%, rgb(30, 37, 49) 50%);*/
-    /*transition: background-position 1s;*/
+    display: none;
+    left: 0;
+    height: 290%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
 }
 
 #backdrop {
-    position: absolute;
-    /*display: none;*/
-    top: 0;
-    left: 0;
-    /*opacity: 0;*/
-    z-index: 4;
-    width: 100%;
-    height: 290%;
     background-color: rgb(30, 37, 49);
+    left: 0;
+    height: 290%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 4;
 }
-/*
-#intro {
-    height:100%;
-}*/
+
+/*--------------------------------------------------------------*/
+/**************************artists section***********************/
+/*--------------------------------------------------------------*/
+#artist {
+    display: none;
+    margin-top: 60px;
+    margin-left: 30%;
+    width: 60%;
+}
 
 /*---------------------------------------------------------------*/
 /************************home page specific***********************/
@@ -259,10 +240,7 @@ p {
         width: 60%;
     }
 
-    .look-detail {
-        display: initial;
-    }
-
+    .look-detail {display: initial;}
     .look-detail img{ padding: 10px 0px;}
 
     #detail {
@@ -270,12 +248,10 @@ p {
         margin-right: 50px;
     }
 
-
     .subTitle {margin-top: 130px;}
     .detail-content {padding-left: 0}
 
     .swatches {
-        /*display: grid;*/
         grid-template-columns: 40% 40% ;
         grid-gap: 7% 20%;
     }
@@ -283,6 +259,5 @@ p {
     .small {
         display: none;
     }
-
 }
 

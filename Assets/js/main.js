@@ -152,6 +152,7 @@ function defineAnime(){
 
   highlightFadeIn = anime({
     targets: '#highlight',
+    easing: 'easeInOutSine',
     opacity: [0, 1],
     direction: 'reverse',
     duration: 1200,

@@ -21,7 +21,6 @@ var closeups = [false, false, false, false];
 //disable scrolling
 function setUp(){
   defineAnime();
-  playRunwayAnime();
   document.getElementById('nav0').style.textDecoration = 'underline';
   $('body').addClass('stop-scrolling');
 
@@ -169,6 +168,40 @@ function defineAnime(){
   });
 }
 
+//defines the bahavior of the left runway
+function defineAutoup(){
+  var runtime = 80000;
+  var maxscroll = document.getElementById('autoup').offsetHeight;
+  var imgHeight = document.getElementById('identifier1').offsetHeight;
+  var offset = maxscroll - imgHeight*1.5;
+
+  scrollUpAnim = anime({
+    targets: '#autoup',
+    translateY: [-imgHeight, -offset],
+    direction: 'alternate',
+    easing: 'linear',
+    loop: true,
+    duration: runtime
+  });
+}
+
+//defines the bahavior of the right runway
+function defineAutodown(){
+  var runtime = 80000;
+  var maxscroll = document.getElementById('autodown').offsetHeight;
+  var imgHeight = document.getElementById('identifier2').offsetHeight;
+  var offset = maxscroll - imgHeight*0.9;
+
+  scrollDownAnim = anime({
+    targets: '#autodown',
+    translateY: [-offset, -300],
+    direction: 'alternate',
+    easing: 'linear',
+    loop: true,
+    duration: runtime
+  });
+}
+
 // see if the current state of the page has changed --> if transitions need to be made
 function stateValidator(newState) {
   if (curState !== newState){
@@ -205,7 +238,6 @@ function changeVlidator (newState){
     if (newState == "collection"){
       document.getElementById('collection').style.display = 'initial';
       runwayExit("show");
-      playRunwayAnime();
       runwayFade.reverse();
       $('body').addClass('stop-scrolling');
     }
@@ -223,7 +255,6 @@ function changeVlidator (newState){
     if (newState == "collection"){
       document.getElementById('collection').style.display = 'initial';
       runwayExit("show");
-      playRunwayAnime();
       runwayFade.reverse();
       linkExit.reverse();
       linkExit.play();
@@ -243,7 +274,6 @@ function changeVlidator (newState){
     if (newState == "collection"){
       document.getElementById('collection').style.display = 'initial';
       runwayExit("show");
-      playRunwayAnime();
       runwayFade.reverse();
       $('body').addClass('stop-scrolling');
     }
@@ -267,11 +297,6 @@ function changeVlidator (newState){
   resetUnderline(curState);
 }
 
-function playRunwayAnime(){
-  scrollUpAnim.play();
-  scrollDownAnim.play();
-}
-
 //fades the runway and brings it back depending on the parameters
 function runwayExit(state){
   runwayFade.play();
@@ -279,42 +304,6 @@ function runwayExit(state){
   if (state == "hide") {
     removeRunway.restart();
   }
-}
-
-//defines the bahavior of the left runway
-function defineAutoup(){
-  var runtime = 80000;
-  var maxscroll = document.getElementById('autoup').offsetHeight;
-  var imgHeight = document.getElementById('identifier1').offsetHeight;
-  var offset = maxscroll - imgHeight*1.5;
-
-  scrollUpAnim = anime({
-    targets: '#autoup',
-    translateY: [-imgHeight, -offset],
-    direction: 'alternate',
-    easing: 'linear',
-    loop: true,
-    duration: runtime,
-    autoplay: false
-  });
-}
-
-//defines the bahavior of the right runway
-function defineAutodown(){
-  var runtime = 80000;
-  var maxscroll = document.getElementById('autodown').offsetHeight;
-  var imgHeight = document.getElementById('identifier2').offsetHeight;
-  var offset = maxscroll - imgHeight*0.9;
-
-  scrollDownAnim = anime({
-    targets: '#autodown',
-    translateY: [-offset, -300],
-    direction: 'alternate',
-    easing: 'linear',
-    loop: true,
-    duration: runtime,
-    autoplay: false
-  });
 }
 
 //reverse animation

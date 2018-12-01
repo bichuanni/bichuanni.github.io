@@ -13,6 +13,7 @@ var highlightFadeIn;
 var removeDetail;
 var removeRunway;
 var runwayFade;
+var releaseScroll;
 var linkExit;
 var closeups = [false, false, false, false];
 
@@ -167,6 +168,16 @@ function defineAnime(){
       document.getElementById('collection').style.display = 'none';
     }
   });
+
+  //used to delay "enable scrolling" as it casues glitch in the animation
+  releaseScroll = anime({
+    targets: '.name',//dummy target
+    delay: 500,
+    autoplay: false,
+    complete: function(anim) {
+      $('body').removeClass('stop-scrolling');
+    }
+  });
 }
 
 //defines the bahavior of the left runway
@@ -232,7 +243,7 @@ function changeVlidator (newState){
     }
     runwayExit("hide");
     runwayFade.reverse();
-    $('body').removeClass('stop-scrolling');
+    releaseScroll.restart();
   }
 
   if (curState == "detail"){

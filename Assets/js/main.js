@@ -112,24 +112,6 @@ function defineAnime(){
     autoplay: false
   });
 
-  removeDetail = anime({
-    targets: '.detail',
-    delay: 400,
-    autoplay: false,
-    complete: function(anim) {
-      document.getElementById('detail').style.display = 'none';
-    }
-  });
-
-  removeRunway = anime({
-    targets: '.collection',
-    delay: 500,
-    autoplay: false,
-    complete: function(anim) {
-      document.getElementById('collection').style.display = 'none';
-    }
-  });
-
   runwayFade = anime({
     targets: '#collection',
     direction: 'reverse',
@@ -165,6 +147,25 @@ function defineAnime(){
     direction: 'reverse',
     duration: 1500,
     autoplay: false
+  });
+
+  //use the delay property to time when to remove element from the page
+  removeDetail = anime({
+    targets: '.detail',
+    delay: 400,
+    autoplay: false,
+    complete: function(anim) {
+      document.getElementById('detail').style.display = 'none';
+    }
+  });
+
+  removeRunway = anime({
+    targets: '.collection',
+    delay: 500,
+    autoplay: false,
+    complete: function(anim) {
+      document.getElementById('collection').style.display = 'none';
+    }
   });
 }
 

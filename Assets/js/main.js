@@ -107,6 +107,7 @@ function defineAnime(){
   detailFadeIn = anime({
     targets: '#detailmain',
     opacity: [0, 1],
+    easing: 'linear',
     direction: 'reverse',
     delay: 400,
     duration: 1000,
@@ -115,9 +116,9 @@ function defineAnime(){
 
   runwayFade = anime({
     targets: '#collection',
-    direction: 'reverse',
     opacity: [1, 0],
     easing: 'easeInOutSine',
+    direction: 'reverse',
     duration: 1200,
     autoplay: false
   });
@@ -133,8 +134,8 @@ function defineAnime(){
 
   highlightFadeIn = anime({
     targets: '#highlight',
-    easing: 'easeInOutSine',
     opacity: [0, 1],
+    easing: 'easeInSine',
     direction: 'reverse',
     duration: 1200,
     autoplay: false
@@ -172,7 +173,7 @@ function defineAnime(){
   //used to delay "enable scrolling" as it casues glitch in the animation
   releaseScroll = anime({
     targets: '.name',//dummy target
-    delay: 500,
+    delay: 200,
     autoplay: false,
     complete: function(anim) {
       $('body').removeClass('stop-scrolling');

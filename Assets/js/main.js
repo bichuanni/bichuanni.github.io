@@ -340,28 +340,34 @@ function playDetailAnime(state){
 }
 
 function zoom(id){
-  var shrinked = false;
+  var w = $(window).width();
+
+  //only enlarge photos if the devise size is greater than 768
+  if (w > 768){
+    var shrinked = false;
 
   for (var i = 0; i < 4; i++){
-    var supposedId = "closeup" + i;
-    if (closeups[i] === true){
-      if (id === supposedId){
-        defineShrink(id);
-        closeups[i] = false;
-        shrinked = true;
+      var supposedId = "closeup" + i;
+      if (closeups[i] === true){
+        if (id === supposedId){
+          defineShrink(id);
+          closeups[i] = false;
+          shrinked = true;
+        }
+      }
+    }
+
+    if (shrinked == false){
+      for (var i = 0; i < 4; i++){
+        var supposedId = "closeup" + i;
+        if (id === supposedId){
+          defineZoom(id, i);
+          closeups[i] = true;
+        }
       }
     }
   }
 
-  if (shrinked == false){
-    for (var i = 0; i < 4; i++){
-      var supposedId = "closeup" + i;
-      if (id === supposedId){
-        defineZoom(id, i);
-        closeups[i] = true;
-      }
-    }
-  }
 }
 
 function defineZoom(id, i){

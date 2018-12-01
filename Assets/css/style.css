@@ -283,6 +283,8 @@ p {
         display: initial;
     }
 
+    .look-detail img{ padding: 10px 0px;}
+
     #detail {
         margin-left: 22%;
         margin-right: 50px;

@@ -1,8 +1,3 @@
-
-// window.addEventListener('scroll', function() {
-//   document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
-// });
-
 var curState = "collection";
 
 var blink;
@@ -21,6 +16,9 @@ var runwayFade;
 var linkExit;
 var closeups = [false, false, false, false];
 
+//define animations for later use
+//start playing the runway scroll in the background for a smoother transition later
+//disable scrolling
 function setUp(){
   defineAnime();
   playRunwayAnime();
@@ -37,9 +35,10 @@ function setUp(){
   });
 }
 
+//transition from welcome page to collection page (happens only once)
 function enter(){
   document.getElementById('logo').style.opacity = 1;
-      blink.pause();
+  blink.pause();
 
   var repositionLogo = anime({
     targets: '#logo',
@@ -70,6 +69,7 @@ function enter(){
   });
 }
 
+//define all the animations shared across functions
 function defineAnime(){
   defineAutoup();
   defineAutodown();
@@ -145,7 +145,6 @@ function defineAnime(){
     translateY: [0, -50],
     opacity: 0,
     direction: 'reverse',
-    // delay: 500,
     duration: 1000,
     autoplay: false
   });
@@ -170,6 +169,14 @@ function defineAnime(){
   });
 }
 
+// see if the current state of the page has changed --> if transitions need to be made
+function stateValidator(newState) {
+  if (curState !== newState){
+    changeVlidator(newState);
+  }
+}
+
+//handles what happens when users are proceeding to a new page
 function changeVlidator (newState){
   if (curState == "collection"){
     if (newState == "detail"){
@@ -228,11 +235,6 @@ function changeVlidator (newState){
       linkExit.reverse();
       detailReverse();
     }
-    // if (newState == "highlight"){
-    //   document.getElementById('highlight').style.display = 'initial';
-    //   highlightFadeIn.play();
-    //   highlightFadeIn.reverse();
-    // }
     proflieEnter.play();
     proflieEnter.reverse();
   }
@@ -265,19 +267,12 @@ function changeVlidator (newState){
   resetUnderline(curState);
 }
 
-// see if the current state of the page has changed --> if transitions need to be made
-function stateValidator(newState) {
-  if (curState !== newState){
-    changeVlidator(newState);
-  }
-}
-
-
 function playRunwayAnime(){
   scrollUpAnim.play();
   scrollDownAnim.play();
 }
 
+//fades the runway and brings it back depending on the parameters
 function runwayExit(state){
   runwayFade.play();
 
@@ -286,6 +281,7 @@ function runwayExit(state){
   }
 }
 
+//defines the bahavior of the left runway
 function defineAutoup(){
   var runtime = 80000;
   var maxscroll = document.getElementById('autoup').offsetHeight;
@@ -303,6 +299,7 @@ function defineAutoup(){
   });
 }
 
+//defines the bahavior of the right runway
 function defineAutodown(){
   var runtime = 80000;
   var maxscroll = document.getElementById('autodown').offsetHeight;
@@ -320,6 +317,7 @@ function defineAutodown(){
   });
 }
 
+//reverse animation
 function detailReverse(){
   darkenBackground.reverse();
   detailSlideRight.reverse();
@@ -339,6 +337,7 @@ function playDetailAnime(state){
   }
 }
 
+//check if we need to zoom in now or zoom out
 function zoom(id){
   var w = $(window).width();
 
@@ -346,7 +345,8 @@ function zoom(id){
   if (w > 768){
     var shrinked = false;
 
-  for (var i = 0; i < 4; i++){
+  //check if a img is already zoomed in
+    for (var i = 0; i < 4; i++){
       var supposedId = "closeup" + i;
       if (closeups[i] === true){
         if (id === supposedId){
@@ -357,6 +357,7 @@ function zoom(id){
       }
     }
 
+    //zoom in on selected img
     if (shrinked == false){
       for (var i = 0; i < 4; i++){
         var supposedId = "closeup" + i;
@@ -379,6 +380,7 @@ function defineZoom(id, i){
 
   document.getElementById('overlay').style.display = 'initial';
   document.getElementById(id).style.zIndex = 1;
+  //make sure the zoomed img is abover other imgs on the page
 
 
   var big = anime({
@@ -389,6 +391,7 @@ function defineZoom(id, i){
       duration: 300
     });
 
+  //draken the view by bringing out the hidden overlay
   var darken = anime({
       targets: "#overlay",
       opacity: 0.8,
@@ -409,6 +412,7 @@ function defineShrink(id){
       duration: 300
     });
 
+  //fade the overlay
   var lighten = anime({
       targets: "#overlay",
       opacity: 0,

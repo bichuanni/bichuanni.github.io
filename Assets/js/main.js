@@ -114,7 +114,7 @@ function defineAnime(){
 
   removeDetail = anime({
     targets: '.detail',
-    delay: 600,
+    delay: 400,
     autoplay: false,
     complete: function(anim) {
       document.getElementById('detail').style.display = 'none';

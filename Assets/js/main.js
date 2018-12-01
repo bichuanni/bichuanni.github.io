@@ -38,7 +38,6 @@ function setUp(){
 }
 
 function enter(){
-  // document.getElementsByTagName('h1')[0].style.opacity = 1;
   document.getElementById('logo').style.opacity = 1;
       blink.pause();
 
@@ -109,14 +108,14 @@ function defineAnime(){
     targets: '#detailmain',
     opacity: [0, 1],
     direction: 'reverse',
-    delay: 500,
-    duration: 1500,
+    delay: 400,
+    duration: 1000,
     autoplay: false
   });
 
   removeDetail = anime({
     targets: '.detail',
-    delay: 1500,
+    delay: 600,
     autoplay: false,
     complete: function(anim) {
       document.getElementById('detail').style.display = 'none';
@@ -206,6 +205,7 @@ function changeVlidator (newState){
       document.getElementById('artist').style.display = 'inline-block';
       proflieEnter.play();
       proflieEnter.reverse();
+      linkExit.reverse();
     }
     playDetailAnime("hide");
     detailReverse();
@@ -224,6 +224,7 @@ function changeVlidator (newState){
     if (newState == "detail"){
       document.getElementById('detail').style.display = 'initial';
       playDetailAnime("show");
+      linkExit.reverse();
       detailReverse();
     }
     // if (newState == "highlight"){
@@ -250,6 +251,8 @@ function changeVlidator (newState){
     }
     if (newState == "artist"){
       document.getElementById('artist').style.display = 'inline-block';
+      linkExit.reverse();
+      linkExit.play();
       proflieEnter.play();
       proflieEnter.reverse();
     }
@@ -275,8 +278,6 @@ function playRunwayAnime(){
 }
 
 function runwayExit(state){
-  // scrollDownAnim.pause();
-  // scrollUpAnim.pause();
   runwayFade.play();
 
   if (state == "hide") {
@@ -289,11 +290,10 @@ function defineAutoup(){
   var maxscroll = document.getElementById('autoup').offsetHeight;
   var imgHeight = document.getElementById('identifier1').offsetHeight;
   var offset = maxscroll - imgHeight*1.5;
-  // console.log(imgHeight);
 
   scrollUpAnim = anime({
     targets: '#autoup',
-    translateY: [0, -offset],
+    translateY: [-imgHeight, -offset],
     direction: 'alternate',
     easing: 'linear',
     loop: true,

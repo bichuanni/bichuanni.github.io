@@ -109,7 +109,7 @@ function defineAnime(){
     opacity: [0, 1],
     easing: 'linear',
     direction: 'reverse',
-    delay: 400,
+    delay: 800,
     duration: 1000,
     autoplay: false
   });

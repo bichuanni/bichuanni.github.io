@@ -6,7 +6,7 @@
     <title>Portfolio</title>
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
-    <!-- JQuery -->
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- anime.js library -->
     <script src="Assets/library/anime.min.js"></script>
@@ -14,17 +14,11 @@
     <script src="Assets/js/main.js" type="text/javascript"></script>
     <!-- hover.css -->
     <link href="Assets/library/hover.css" rel="stylesheet" media="all">
-
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 </head>
 
-<!-- make sure the shopping cart icon is up to date everytime the page is loaded -->
 <body onload="setUp()">
     <div class="container">
-
+        <!-- content visible on the welcome page -->
         <div id="intro">
             <div id="logo">INERTIA</div>
             <div id="backdrop"></div>
@@ -33,6 +27,7 @@
             </a>
         </div>
 
+        <!-- Fixed headers and other fixed elements -->
         <div id="fixed">
             <div class="col-1">
                 <a href="#" class="header collection-box box" id="nav0" onclick="stateValidator('collection')">Collection</a>
@@ -46,11 +41,10 @@
             <div class="highlight-link">
                 <a href="#" class="highlight-box box" id="nav3" onclick="stateValidator('highlight')">Highlight Looks </a>
             </div>
-
             <div class="name">Shuangni Huang</div>
         </div>
 
-
+        <!-- content visible on the collection page -->
         <div id="collection">
             <div class="col-4 runway" id="autoup">
                 <img src="Assets/img/collection/1.jpg" alt="look 1" id="identifier1">
@@ -78,6 +72,7 @@
             </div>
         </div>
 
+        <!-- content visible on the detail page -->
         <div id="detail">
             <div class="subTitle"><h2>Final Line-Up</h2></div>
             <img src="Assets/img/details/lineup.jpg" alt="final line-up look" id="detailmain">
@@ -124,9 +119,11 @@
             </div>
         </div>
 
+        <!-- content visible on the highlight page -->
         <div id="highlight">
             <img src="Assets/img/highlight/0.jpg" alt="shot of two models in thier looks">
             <br>
+            <!-- detail shots that are allowed for zoom -->
             <div class="look-detail">
                 <img src="Assets/img/highlight/1.jpg" alt="highlight female look close shot 1" class="hvr-grow" id="closeup0" onclick="zoom('closeup0')">
                 <img src="Assets/img/highlight/2.jpg" alt="highlight male look close shot 1" class="hvr-grow" id="closeup1" onclick="zoom('closeup1')">
@@ -139,6 +136,7 @@
         </div>
         <div id="overlay"></div>
 
+        <!-- content visible on the artists page -->
         <div id="artist">
             <img src="Assets/img/artist/profile.png" alt="headshot of the artist">
             <br><br>

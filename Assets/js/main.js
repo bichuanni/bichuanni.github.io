@@ -147,7 +147,8 @@ function defineAnime(){
     translateX: ['50%', 0],
     easing: 'easeInOutExpo',
     direction: 'reverse',
-    duration: 1500,
+    delay: 600,
+    duration: 1300,
     autoplay: false
   });
 
